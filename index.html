@@ -3,220 +3,684 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Mother's Day, Mom 💗</title>
+
+<title>Happy Birthday, Mom 💗</title>
+
+<!-- ฟอนต์ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mali:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+
 <style>
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    min-height: 100vh;
-    font-family: "Arial", "Tahoma", sans-serif;
-    background: linear-gradient(135deg, #fff4f6, #ffe7ed, #fff9f5);
-    color: #6f4a52;
-    overflow-x: hidden;
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Mali", sans-serif;
+  background:
+    radial-gradient(circle at top left, #fff7f8, transparent 35%),
+    radial-gradient(circle at bottom right, #ffe2e9, transparent 40%),
+    linear-gradient(135deg, #fff8f8, #ffecef);
+  color: #6f4a52;
+  overflow-x: hidden;
+}
+
+/* =========================
+   ดอกไม้ลอย
+========================= */
+
+.petal {
+  position: fixed;
+  top: -50px;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.7;
+  animation: fall linear infinite;
+}
+
+.petal:nth-child(1) {
+  left: 5%;
+  font-size: 20px;
+  animation-duration: 9s;
+}
+
+.petal:nth-child(2) {
+  left: 20%;
+  font-size: 25px;
+  animation-duration: 11s;
+  animation-delay: 2s;
+}
+
+.petal:nth-child(3) {
+  left: 40%;
+  font-size: 18px;
+  animation-duration: 8s;
+  animation-delay: 1s;
+}
+
+.petal:nth-child(4) {
+  left: 65%;
+  font-size: 24px;
+  animation-duration: 10s;
+  animation-delay: 3s;
+}
+
+.petal:nth-child(5) {
+  left: 85%;
+  font-size: 19px;
+  animation-duration: 12s;
+  animation-delay: 1s;
+}
+
+@keyframes fall {
+  from {
+    transform: translateY(-50px) rotate(0deg);
   }
 
-  .petal {
-    position: fixed;
-    top: -30px;
-    font-size: 20px;
-    animation: fall linear infinite;
-    opacity: .65;
-    pointer-events: none;
+  to {
+    transform: translateY(110vh) rotate(360deg);
   }
-  .p1 { left: 8%; animation-duration: 8s; }
-  .p2 { left: 25%; animation-duration: 10s; animation-delay: 2s; }
-  .p3 { left: 50%; animation-duration: 9s; animation-delay: 1s; }
-  .p4 { left: 72%; animation-duration: 11s; animation-delay: 3s; }
-  .p5 { left: 90%; animation-duration: 7s; animation-delay: 4s; }
+}
 
-  @keyframes fall {
-    to { transform: translateY(110vh) rotate(360deg); }
+/* =========================
+   หน้าแต่ละหน้า
+========================= */
+
+.page {
+  min-height: 100vh;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 18px 100px;
+  position: relative;
+  z-index: 2;
+}
+
+.page.active {
+  display: flex;
+  animation: pageIn 0.7s ease;
+}
+
+@keyframes pageIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
   }
 
-  .screen {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 28px 18px;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
+}
+
+/* =========================
+   การ์ด
+========================= */
+
+.card {
+  width: min(92vw, 540px);
+  padding: 38px 25px;
+  border-radius: 32px;
+
+  background: rgba(255,255,255,0.84);
+  border: 1px solid rgba(255,255,255,0.95);
+
+  box-shadow:
+    0 20px 70px rgba(160,90,110,0.15);
+
+  backdrop-filter: blur(12px);
+  text-align: center;
+}
+
+.cover-card {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.heart {
+  font-size: 60px;
+  animation: heartbeat 1.7s infinite;
+}
+
+@keyframes heartbeat {
+  0%,100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.13);
+  }
+}
+
+h1 {
+  font-family: "Playfair Display", serif;
+  color: #b86f81;
+  font-size: clamp(34px, 9vw, 52px);
+  margin: 15px 0 8px;
+}
+
+h2 {
+  color: #a96072;
+  font-size: 23px;
+  font-weight: 500;
+  margin: 10px 0 20px;
+}
+
+h3 {
+  color: #b86f81;
+  font-size: 28px;
+  margin: 5px 0 22px;
+}
+
+p {
+  font-size: 16px;
+  line-height: 2;
+  margin: 13px 0;
+}
+
+/* =========================
+   ปุ่ม
+========================= */
+
+.button {
+  border: none;
+  border-radius: 999px;
+
+  padding: 13px 27px;
+  margin: 15px 5px 0;
+
+  background: #d78a9c;
+  color: white;
+
+  font-family: inherit;
+  font-size: 15px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 20px rgba(180,100,120,0.22);
+
+  transition: 0.25s;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button:active {
+  transform: scale(0.96);
+}
+
+.button.secondary {
+  background: #f0c6ce;
+  color: #875763;
+}
+
+/* =========================
+   รูปภาพ
+========================= */
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin: 22px 0;
+}
+
+.photo {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 20px;
+  background: linear-gradient(135deg,#f8d9df,#fff0e9);
+  box-shadow: 0 8px 20px rgba(160,90,110,0.12);
+}
+
+/*
+ถ้าไม่มีรูป:
+จะเห็นช่องสีชมพูแทน
+
+วิธีใส่รูป:
+เปลี่ยน src="photo1.jpg"
+เป็นชื่อไฟล์รูปของเธอ
+*/
+
+.photo-placeholder {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(135deg,#f8d9df,#fff0e9);
+  color: #a77982;
+}
+
+/* =========================
+   เส้นคั่น
+========================= */
+
+.divider {
+  width: 75px;
+  height: 2px;
+  background: #e6b1bc;
+  margin: 28px auto;
+}
+
+/* =========================
+   ข้อความพิเศษ
+========================= */
+
+.quote {
+  font-family: "Playfair Display", serif;
+  font-size: 21px;
+  line-height: 1.8;
+  color: #a96072;
+  margin: 25px 5px;
+}
+
+.signature {
+  margin-top: 30px;
+  color: #a96072;
+  font-size: 19px;
+}
+
+.small {
+  font-size: 13px;
+  opacity: 0.65;
+  margin-top: 25px;
+}
+
+/* =========================
+   จุดบอกหน้า
+========================= */
+
+.dots {
+  position: fixed;
+  bottom: 18px;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+
+  z-index: 10;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #e5b5bf;
+  transition: 0.3s;
+}
+
+.dot.active {
+  width: 23px;
+  border-radius: 10px;
+  background: #c98293;
+}
+
+/* =========================
+   มือถือ
+========================= */
+
+@media (max-width: 430px) {
 
   .card {
-    width: min(92vw, 520px);
-    background: rgba(255,255,255,.82);
-    border: 1px solid rgba(255,255,255,.95);
-    border-radius: 32px;
-    padding: 38px 26px;
-    text-align: center;
-    box-shadow: 0 20px 60px rgba(160,100,120,.15);
-    backdrop-filter: blur(12px);
-  }
-
-  .heart {
-    font-size: 58px;
-    animation: pulse 1.6s infinite;
-  }
-
-  @keyframes pulse {
-    50% { transform: scale(1.12); }
+    padding: 32px 20px;
+    border-radius: 27px;
   }
 
   h1 {
-    margin: 10px 0 8px;
-    font-size: clamp(30px, 8vw, 48px);
-    color: #b96f80;
+    font-size: 37px;
   }
 
   h2 {
-    font-size: 23px;
-    margin: 8px 0 18px;
-    font-weight: 500;
+    font-size: 20px;
   }
 
   p {
-    line-height: 1.9;
-    font-size: 16px;
+    font-size: 15px;
   }
 
-  .button {
-    border: 0;
-    border-radius: 999px;
-    padding: 14px 28px;
-    margin-top: 18px;
-    background: #d98b9c;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    box-shadow: 0 8px 20px rgba(180,100,120,.2);
+  .photo-grid {
+    gap: 9px;
   }
-
-  .button:active { transform: scale(.97); }
-
-  .hidden { display: none; }
-
-  .letter {
-    animation: appear .8s ease;
-  }
-
-  @keyframes appear {
-    from { opacity: 0; transform: translateY(18px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .photo-box {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    border-radius: 24px;
-    margin: 22px 0;
-    background: linear-gradient(135deg,#f8d9df,#fff0e9);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #a77982;
-    overflow: hidden;
-  }
-
-  .photo-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: none;
-  }
-
-  .divider {
-    margin: 25px auto;
-    width: 70px;
-    height: 2px;
-    background: #e7b2bd;
-  }
-
-  .signature {
-    margin-top: 26px;
-    font-size: 18px;
-    color: #a96072;
-  }
-
-  .small {
-    font-size: 13px;
-    opacity: .7;
-    margin-top: 22px;
-  }
+}
 </style>
 </head>
 
 <body>
-  <div class="petal">🌸</div>
-  <div class="petal p1">🌷</div>
-  <div class="petal p2">🌸</div>
-  <div class="petal p3">💗</div>
-  <div class="petal p4">🌷</div>
-  <div class="petal p5">🌸</div>
 
-  <section class="screen" id="cover">
-    <div class="card">
-      <div class="heart">💗</div>
-      <h1>Happy Mother's Day</h1>
-      <h2>ถึงเเม่คนที่เก่งมาก</h2>
-      <p>
-        มีอะไรบางอย่างที่อยากบอก<br>
-       เเต่ถ้าเขียนจดหมายก็จะธรรมดาเกิน กดปุ่มข้างล่างสิ
-      </p>
-      <button class="button" onclick="openLetter()">เปิดจดหมาย 💌</button>
-    </div>
-  </section>
+<!-- ดอกไม้ลอย -->
+<div class="petal">🌸</div>
+<div class="petal">🌷</div>
+<div class="petal">💗</div>
+<div class="petal">🌸</div>
+<div class="petal">🌷</div>
 
-  <section class="screen hidden" id="letter">
-    <div class="card letter">
-      <div class="heart">🌷</div>
-      <h1>สุขสันต์วันเเม่นะ</h1>
 
-      <div class="photo-box">
-        <!-- ถ้ามีรูปแม่ ให้ใส่รูปในโฟลเดอร์เดียวกับไฟล์นี้ แล้วเปลี่ยนชื่อเป็น mom.jpg
-        จากนั้นเอา style="display:none" ออก -->
-        <span>ใส่รูปแม่ตรงนี้ได้เลย 💗</span>
-        <img src="mom.jpg" alt="รูปคุณแม่">
+<!-- =====================================================
+     PAGE 1
+     หน้าเปิด
+===================================================== -->
+
+<section class="page active">
+
+  <div class="card cover-card">
+
+    <div class="heart">💗</div>
+
+    <!-- ✏️ แก้ข้อความตรงนี้ได้ -->
+    <h1>Happy Birthday</h1>
+
+    <!-- ✏️ แก้ข้อความตรงนี้ได้ -->
+    <h2>ถึงแม่คนที่เก่งมาก</h2>
+
+    <div class="divider"></div>
+
+    <!-- ✏️ แก้ข้อความตรงนี้ได้ -->
+    <p>
+      แต่ถ้าเขียนจดหมายก็คงธรรมดาเกินไป<br>
+      เลยอยากทำอะไรเล็ก ๆ ให้แม่แทน
+    </p>
+
+    <p>
+      มีบางอย่างที่หนูอยากบอกแม่<br>
+      เลยอยากให้แม่ลองเปิดดูนะคะ 💌
+    </p>
+
+    <button class="button" onclick="nextPage()">
+      เปิดการ์ด 💌
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     PAGE 2
+     ข้อความถึงแม่
+===================================================== -->
+
+<section class="page">
+
+  <div class="card">
+
+    <div class="heart">🌷</div>
+
+    <h3>ถึงแม่ 🤍</h3>
+
+    <!-- ✏️ แก้ข้อความหน้านี้ได้ -->
+    <p>
+      ขอบคุณแม่นะคะ<br>
+      สำหรับทุกอย่างที่แม่ทำให้หนูมาตลอด
+    </p>
+
+    <p>
+      ขอบคุณที่คอยดูแล คอยเป็นห่วง<br>
+      และอยู่ข้างหนูในวันที่หนูมีทั้งวันที่ดีและวันที่ไม่ดี
+    </p>
+
+    <div class="divider"></div>
+
+    <p>
+      บางทีหนูอาจไม่ได้พูดออกมาบ่อย ๆ<br>
+      แต่หนูเห็นทุกอย่างที่แม่ทำให้หนูนะ
+    </p>
+
+    <p>
+      และหนูอยากให้แม่รู้ว่า<br>
+      หนูรักแม่มากจริง ๆ 💗
+    </p>
+
+    <button class="button secondary" onclick="prevPage()">
+      ← ก่อนหน้า
+    </button>
+
+    <button class="button" onclick="nextPage()">
+      ถัดไป →
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     PAGE 3
+     รูปความทรงจำ
+===================================================== -->
+
+<section class="page">
+
+  <div class="card">
+
+    <div class="heart">📸</div>
+
+    <h3>ความทรงจำของเรา</h3>
+
+    <p>
+      รูปอาจเป็นแค่ภาพหนึ่งภาพ<br>
+      แต่สำหรับหนู มันคือความทรงจำที่มีค่ามาก ๆ
+    </p>
+
+    <!-- =================================================
+         ✏️ ใส่รูปตรงนี้
+         
+         ถ้ามีรูปชื่อ mom1.jpg
+         ให้อัปโหลดไฟล์นั้นเข้า GitHub
+         แล้วเปลี่ยน src เป็น "mom1.jpg"
+    ================================================== -->
+
+    <div class="photo-grid">
+
+      <div class="photo-placeholder">
+        🌷 รูปที่ 1
       </div>
 
-      <p>
-        ขอบคุณแม่ที่อยู่ข้างหนูมาตลอด<br>
-        ขอบคุณสำหรับทุกอย่างที่แม่ทำให้<br>
-        ทั้งสิ่งที่หนูเห็น และสิ่งที่หนูอาจไม่เคยรู้
-      </p>
-
-      <div class="divider"></div>
-
-      <p>
-        หนูอาจไม่ได้พูดบ่อย ๆ ว่ารักแม่<br>
-        แต่อยากให้แม่รู้ว่า<br>
-        <strong>แม่คือหนึ่งในคนที่สำคัญที่สุดในชีวิตของหนูเสมอ</strong>
-      </p>
-
-      <p>
-        ขอให้ปีนี้แม่มีความสุขมาก ๆ<br>
-        สุขภาพแข็งแรง ยิ้มเยอะ ๆ<br>
-        และมีแต่เรื่องดี ๆ เข้ามาในชีวิตนะคะ
-      </p>
-
-      <p>
-        ถ้าวันไหนแม่เหนื่อย<br>
-        อย่าลืมนะคะว่าแม่ยังมีหนูอยู่ตรงนี้เสมอ 🤍
-      </p>
-
-      <div class="signature">
-        รักแม่ที่สุดนะ 💗<br>
-        จากลูกของแม่
+      <div class="photo-placeholder">
+        💗 รูปที่ 2
       </div>
 
-      <p class="small">Made with love, just for Mom 🌸</p>
+      <div class="photo-placeholder">
+        🌸 รูปที่ 3
+      </div>
+
+      <div class="photo-placeholder">
+        📸 รูปที่ 4
+      </div>
+
     </div>
-  </section>
+
+    <!--
+    ตัวอย่างถ้าจะใส่รูปจริง:
+
+    <img class="photo" src="mom1.jpg">
+    <img class="photo" src="mom2.jpg">
+    <img class="photo" src="mom3.jpg">
+    <img class="photo" src="mom4.jpg">
+    -->
+
+    <button class="button secondary" onclick="prevPage()">
+      ← ก่อนหน้า
+    </button>
+
+    <button class="button" onclick="nextPage()">
+      ถัดไป →
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     PAGE 4
+     ข้อความจากใจ
+===================================================== -->
+
+<section class="page">
+
+  <div class="card">
+
+    <div class="heart">🤍</div>
+
+    <h3>มีบางอย่างที่อยากบอก</h3>
+
+    <!-- ✏️ แก้ข้อความหน้านี้ได้ -->
+    <p>
+      หนูอาจจะไม่ใช่ลูกที่พูดคำว่ารักเก่งที่สุด
+      และบางครั้งก็อาจทำให้แม่เป็นห่วง
+    </p>
+
+    <p>
+      แต่ไม่ว่าจะโตขึ้นแค่ไหน<br>
+      แม่ก็ยังเป็นคนสำคัญของหนูเสมอ
+    </p>
+
+    <div class="divider"></div>
+
+    <div class="quote">
+      “หนูอาจไม่ได้พูดทุกวัน<br>
+      แต่หนูรักแม่ทุกวันนะ”
+    </div>
+
+    <p>
+      ขอบคุณที่เป็นบ้านที่หนูกลับมาได้เสมอ<br>
+      ขอบคุณที่รักหนูในทุกเวอร์ชันของหนู
+    </p>
+
+    <button class="button secondary" onclick="prevPage()">
+      ← ก่อนหน้า
+    </button>
+
+    <button class="button" onclick="nextPage()">
+      ถัดไป →
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     PAGE 5
+     หน้าจบ
+===================================================== -->
+
+<section class="page">
+
+  <div class="card cover-card">
+
+    <div class="heart">🎂</div>
+
+    <h1>Happy Birthday</h1>
+
+    <h2>รักแม่นะคะ 💗</h2>
+
+    <div class="divider"></div>
+
+    <!-- ✏️ แก้คำอวยพรตรงนี้ได้ -->
+    <p>
+      ขอให้แม่มีความสุขมาก ๆ<br>
+      สุขภาพแข็งแรง<br>
+      ได้ทำในสิ่งที่แม่ชอบ<br>
+      และมีแต่เรื่องดี ๆ เข้ามาในชีวิต
+    </p>
+
+    <p>
+      ขอให้ทุกวันของแม่มีรอยยิ้ม<br>
+      เหมือนที่แม่ทำให้หนูยิ้มมาตลอดนะคะ
+    </p>
+
+    <div class="signature">
+      รักแม่ที่สุดนะ 💗<br>
+      จากลูกของแม่
+    </div>
+
+    <p class="small">
+      Made with love, just for Mom 🌸
+    </p>
+
+    <button class="button secondary" onclick="prevPage()">
+      ← กลับไปดูอีกครั้ง
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- จุดบอกว่าตอนนี้อยู่หน้าไหน -->
+
+<div class="dots">
+
+  <div class="dot active"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+
+</div>
+
 
 <script>
-function openLetter() {
-  document.getElementById("cover").classList.add("hidden");
-  document.getElementById("letter").classList.remove("hidden");
-  window.scrollTo({top: 0, behavior: "smooth"});
+
+let currentPage = 0;
+
+const pages = document.querySelectorAll(".page");
+const dots = document.querySelectorAll(".dot");
+
+
+function showPage(number) {
+
+  pages.forEach((page) => {
+    page.classList.remove("active");
+  });
+
+  dots.forEach((dot) => {
+    dot.classList.remove("active");
+  });
+
+  pages[number].classList.add("active");
+  dots[number].classList.add("active");
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
 }
+
+
+function nextPage() {
+
+  if (currentPage < pages.length - 1) {
+    currentPage++;
+    showPage(currentPage);
+  }
+
+}
+
+
+function prevPage() {
+
+  if (currentPage > 0) {
+    currentPage--;
+    showPage(currentPage);
+  }
+
+}
+
 </script>
+
 </body>
 </html>
